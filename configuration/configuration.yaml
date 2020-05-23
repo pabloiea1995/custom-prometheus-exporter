@@ -1,0 +1,26 @@
+deployment:
+    port: 3000
+metrics:
+    metricsDefinition:
+    - name: "test_histogram"
+      type: Histogram
+      labelNames: ["method", "status", "c"]
+      info: 
+        name: "web_test_gauge"
+        help: "Total test gauge"
+    - name: "test_gauge1"
+      type: Gauge
+      info: 
+        name: "web_test_gauge2"
+        help: "Total test gauge"
+    - name: "test_summary"
+      type: Summary
+      percentiles: [0, 0.25, 0.50, 0.75, 0.99]
+      info: 
+        name: "web_test_summary"
+        help: "Total test gauge"
+    - name: "test_counter"
+      type: Counter
+      info: 
+        name: "web_test_counter"
+        help: "Total test counter"
