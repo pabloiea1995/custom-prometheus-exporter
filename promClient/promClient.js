@@ -11,6 +11,10 @@ function initializeRegister(){
     log('DEBUG', 'Initializing prometheus client');
     const client = require('prom-client');
     module.exports.register = client.register;
+    //collecting default metrics 
+    const collectDefaultMetrics = client.collectDefaultMetrics
+    const register =  module.exports.register
+    collectDefaultMetrics({ register })
     log('DEBUG', 'Generating metric from configuration file');
     
     return generateMetricsFromConfig(client);
@@ -121,3 +125,15 @@ function generateMetricsFromConfig(client, metricDefinitionTest){
 
 module.exports.initializeRegister = initializeRegister
 module.exports.generateMetricsFromConfig = generateMetricsFromConfig
+module.exports.resetMetrics = (register) => {
+
+    log('DEBUG', 'Reseting metrics');
+    try{
+        register.resetMetrics()
+
+    }
+    catch(err){
+        log('ERROR', 'There has been an error trying to reset metrics');
+        log(err)
+    }
+}

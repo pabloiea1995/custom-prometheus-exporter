@@ -12,6 +12,7 @@ const baseURI = '/api/v1/control'
     "operation": "set"
 }
 */
+//TODO: Check if requested metric existes and send error if not
 router.post(baseURI + '/:type', (req, res)=> {
     
 
@@ -60,6 +61,27 @@ router.post(baseURI + '/:type', (req, res)=> {
        }
 
     }
+
+})
+
+router.get(baseURI + '/resetMetrics', (req, res)=>{
+
+    log('DEBUG', 'Recieved request to reset register metrics');
+
+    const { resetMetrics, register } = require('../promClient/promClient');
+
+    try{
+        resetMetrics(register)
+        log('DEBUG', 'Register metrics reseted successfully');
+        res.status(200).send("Register metrics reseted successfully")
+    }
+    catch (err) {
+            loge('ERROR', 'Error resing register metrics');
+            res.status(500).send("Error trying to reset register metrics")
+        }
+
+
+
 
 })
 

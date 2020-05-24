@@ -16,7 +16,7 @@ describe("Well formed configuration file", () => {
     const client = require('prom-client')
     client.register.clear()
   })
-  it("REad config file and initialize register", (done) => {
+  it("Read config file and initialize register", (done) => {
     
     const promClient = require('../promClient/promClient')
     
