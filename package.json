@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon .",
-    "test": "mocha --reporter spec"
+    "test": "mocha --grep promClient && mocha --grep configuration",
+    "build": "docker build -t psanchezmvelarde/web-metrics-exporter ."
+    
+    
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,5 @@
 deployment:
-    port: 3000
+    port: 5000
 metrics:
     metricsDefinition:
     - name: "test_histogram"

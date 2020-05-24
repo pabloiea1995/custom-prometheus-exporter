@@ -13,6 +13,8 @@ describe("Initializating test", () => {
   beforeEach(() => {
     const client = require('prom-client')
     client.register.clear()
+    promClient.register.clear()
+    
   })
   it("initialize correctly", (done) => {
     
