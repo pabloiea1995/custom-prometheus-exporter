@@ -78,7 +78,10 @@ function generateMetricsFromConfig(client, metricDefinitionTest){
                     module.exports.webMetrics[metricObj.name] = new client.Gauge(metricObj.info)
                     break
                 case "Counter":
-                    module.exports.webMetrics[metricObj.name] = new client.Counter(metricObj.info)
+                    if(metricObj.labelNames){
+                        options.labelNames = metricObj.labelNames
+                    }
+                    module.exports.webMetrics[metricObj.name] = new client.Counter(options)
                     break
                 case "Histogram":
                     

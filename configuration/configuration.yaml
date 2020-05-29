@@ -2,12 +2,40 @@ deployment:
     port: 5000
 metrics:
     metricsDefinition:
-    - name: "test_histogram"
-      type: Histogram
-      labelNames: ["method", "status", "c"]
+    - name: "inicio_solicitud_presupuesto"
+      type: Counter
       info: 
-        name: "web_test_gauge"
-        help: "Total test gauge"
+        name: "incio_solicitud_presupuesto"
+        help: "Total clicks to 'Iniciar presupuesto' button"
+    - name: "fin_solicitud_presupuesto"
+      type: Counter
+      info: 
+        name: "fin_solicitud_presupuesto"
+        help: "Total clicks to 'Finalizar presupuesto' button"
+    - name: "abrir_parada_google_maps"
+      type: Counter
+      labelNames: ["linea"]
+      info: 
+        name: "abrir_parada_google_maps"
+        help: "Total clicks to 'google Maps' button "
+    - name: "descargar_horario"
+      type: Counter
+      labelNames: ["linea"]
+      info: 
+        name: "descargar_horario"
+        help: "Total clicks to 'Ver Horario' button "
+    - name: "revisar_info_tarjetas"
+      type: Counter
+      labelNames: ["tipo_tarjeta"]
+      info: 
+        name: "revisar_info_tarjetas"
+        help: "Total clicks to 'recarga tarjetas tab' '"
+    - name: "consultar_loc_puntos_recarga"
+      type: Counter
+      labelNames: ["punto_recarga"]
+      info: 
+        name: "consultar_loc_puntos_recarga"
+        help: "Total clicks to 'ani chargin point location' '"
     - name: "test_gauge1"
       type: Gauge
       info: 

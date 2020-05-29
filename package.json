@@ -8,13 +8,12 @@
     "dev": "nodemon .",
     "test": "mocha --grep promClient && mocha --grep configuration",
     "build": "docker build -t psanchezmvelarde/web-metrics-exporter ."
-    
-    
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "js-yaml": "^3.13.1",
     "online-log": "^0.2.5",

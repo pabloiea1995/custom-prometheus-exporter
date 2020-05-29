@@ -13,7 +13,7 @@ const baseURI = '/api/v1/control'
 }
 */
 //TODO: Check if requested metric existes and send error if not
-router.post(baseURI + '/:type', (req, res)=> {
+router.post(baseURI + '/:type',(req, res)=> {
     
 
     const body = req.body;
@@ -31,7 +31,7 @@ router.post(baseURI + '/:type', (req, res)=> {
 
     if(labels){
         log('TRACE', 'Request contains labels specification');
-        log('TRACE', `Performing operation over metric "${metric}" of type [${type}] with value [${value}] and labels ${labels}`);
+        log('TRACE', `Performing operation over metric "${metric}" of type [${type}] with value [${value}] and labels ${JSON.stringify(labels)}`);
         try{
              control[type][operation](metric, value, labels);
              res.status(200).send("")

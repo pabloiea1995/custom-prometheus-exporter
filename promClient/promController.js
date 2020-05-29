@@ -50,10 +50,16 @@ module.exports = {
         },
         counter: {
            
-            inc: function (metric, value) {
+            inc: function (metric, value, labels) {
                 log('TRACE', `Performing inc operation on type counter`);
                 try {
-                    webMetrics[metric].inc(value)
+                    if(labels){
+                        webMetrics[metric].inc(labels,value)
+                    }
+                    else{
+                        webMetrics[metric].inc(value)
+
+                    }
                 }
                 catch (err) {
                     log('ERROR', 'Error on inc operation on type counter ');

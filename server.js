@@ -6,7 +6,9 @@ const { port } = configuration;
 const express = require('express');
 const server = express();
 const bodyParser = require('body-parser');
+const cors = require('cors')
 
+server.use(cors())
 //Initialize logs
 const online_log = require("online-log");
 online_log(server, {
